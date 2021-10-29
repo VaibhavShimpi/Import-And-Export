@@ -17,7 +17,7 @@ public class FoodboxApplication implements CommandLineRunner {
 	
 	
 	@Autowired
-	RegisterUserService registerUserService;
+	RegisterUserService registerUserService; 
 	
 
 	public static void main(String[] args) {
