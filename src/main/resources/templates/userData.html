@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+          integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <title>All Users</title>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light" >
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img  src="https://image.shutterstock.com/image-vector/food-box-logo-template-design-260nw-1949600743.jpg" width="175" height="110" class="d-inline-block align-top" alt=""/>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+           
+           <ul class="navbar-nav mr-auto"></ul>
+            <ul class="navbar-nav">
+            
+            	<li class="nav-item active" style="margin-right: 20px">
+                    <a class="nav-link" th:href="@{/admin/home}" href="#">Home</a>
+                </li>
+                
+                <li class="nav-item active" style="margin-right: 20px">
+                    <a class="nav-link" th:href="@{/admin/products/add}" href="#">Add Food</a>
+                </li>
+               
+               
+				<li class="nav-item dropdown" style="margin-right: 80px">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <span th:text="${user.firstName}">
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" th:href="@{/profile}" href="#">Profile</a>
+                       
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" th:href="@{/logout}" href="#">Logout</a>
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+
+        </div>
+    </div>
+</nav>
+<div class="container">
+
+    <div class="row">
+    <a th:href="@{/admin/userData/sort}" style="margin: 20px" class="btn btn-primary">Sort by name</a>
+
+    <form action="/search/food" method="post" class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+    </div>
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">SN</th>
+            <th scope="col">First name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Delete</th>
+            <th scope="col">Update</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <tr th:each="user, iStat : ${users}">
+            <th scope="row" th:text="${iStat.index + 1}">1</th>
+            <td th:text="${user.firstName}">Larry</td>
+            <td th:text="${user.lastName}">Larry</td>
+            <td th:text="${user.email}">Larry</td>
+
+            <td><a href="" th:href="@{/admin/users/delete/{id}(id=${user.id})}" class="btn btn-danger">Delete</a></td>
+            <td><a href="" th:href="@{/admin/users/update/{id}(id=${user.id})}" class="btn btn-warning">Update</a></td>
+
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>
