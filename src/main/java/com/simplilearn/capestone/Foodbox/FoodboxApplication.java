@@ -12,7 +12,7 @@ import com.simplilearn.capestone.Foodbox.Services.RegisterUserService;
 
 
 @SpringBootApplication
-public class FoodboxApplication implements CommandLineRunner {
+public class FoodboxApplication implements CommandLineRunner{
 	
 	
 	
@@ -24,19 +24,22 @@ public class FoodboxApplication implements CommandLineRunner {
 		SpringApplication.run(FoodboxApplication.class, args);
 	}
 
+
 	@Override
 	public void run(String... args) throws Exception {
-	//	RegisterUser registerUser = new RegisterUser();
-
-	/*	registerUser.setFirstName("David");
-		registerUser.setLastName("Rogers");
-		registerUser.setEmail("Admin@foodbox.com");
-		registerUser.setRole("Admin");
-		registerUser.setPassword("Admin@123");
-
-		registerUserService.saveUser(registerUser);*/
+		
+		/* RegisterUser registerUser = new RegisterUser();
+		 registerUser.setEmail("Admin@importexport.com");
+		 registerUser.setFirstName("Admin");
+		 registerUser.setLastName("admin");
+		 registerUser.setPassword("admin");
+		 registerUser.setRole("Admin");
+		 registerUserService.saveUser(registerUser);*/
+		 
 		
 	}
+
+	
 	
 
 	
